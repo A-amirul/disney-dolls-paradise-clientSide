@@ -1,10 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+const provider = new GoogleAuthProvider();
+const auth = getAuth();
 
 const Login = () => {
+	const [error, setError] = useState('');
 	const { signIn } = useContext(AuthContext);
+	const navigate = useNavigate();
+	const location = useLocation();
+	const from = location?.state?.from?.pathname || '/'
+
 
 	const handleLogin = event => {
 		event.preventDefault();
@@ -15,11 +23,24 @@ const Login = () => {
 
 		signIn(email, password)
 			.then(result => {
-				const user = result.user;
-				console.log(user);
+				const loggedUser = result.user;
+				console.log(loggedUser);
+				navigate(from, { replace: true })
 			})
-			.catch(error => console.log(error));
+			.catch(error => setError(error));
 	}
+
+	const handleGoogleSignIn = () => {
+		signInWithPopup(auth,provider)
+			.then((result) => {
+				const loggedUser = result.user;
+				console.log(loggedUser);
+				navigate(from, { replace: true })
+			})
+			.catch((error) => {
+				setError(error.message);
+			});
+	};
 	return (
 		<div className="hero min-h-screen bg-base-200">
 			<div className="hero-content flex-col lg:flex-row-reverse">
@@ -47,15 +68,16 @@ const Login = () => {
 								</label>
 								<input type="password" name="password" placeholder="password" className="input input-bordered" />
 								<label className="label">
-									<a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+									<Link className="label-text-alt link link-hover">Forgot password?</Link>
 								</label>
 							</div>
+							<p>{error}</p>
 							<div className="form-control mt-6">
 								<input className="btn bg-sky-600 rounded-full" type="submit" value="Login" />
 							</div>
 						</form>
 						<hr className="my-4" />
-						<button className="btn btn-outline btn-success rounded-full"><FaGoogle className="me-2"></FaGoogle>Continue With Google</button>
+						<button onClick={handleGoogleSignIn} className="btn btn-outline btn-success rounded-full"><FaGoogle className="me-2"></FaGoogle>Continue With Google</button>
 					</div>
 				</div>
 			</div>

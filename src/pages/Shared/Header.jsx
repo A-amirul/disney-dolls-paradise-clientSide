@@ -37,11 +37,9 @@ return (
 		</div>
 		<div className="navbar-end">
 
-			<div className='text-blue-600 hover:bg-blue-900 p-3 rounded-xl font-bold '> 
+			<div className='text-blue-600 hover:bg-blue-900 p-3 rounded-xl font-bold text-xl'> 
 				{user ? <img onClick={handleLogOut}
-							className='w-10 h-10 rounded-full border bottom-2 border-black' title={user?.reloadUserInfo?.displayName} src={user?.reloadUserInfo?.photoUrl} alt=""
-
-						/> : <Link
+					className='w-10 h-10 rounded-full border bottom-2 border-black' title={user?.reloadUserInfo?.displayName} src={user?.reloadUserInfo?.photoUrl} alt=""/> : <Link
 							to='/login'
 							className={({ isActive }) => (isActive ? 'active' : 'default')}
 						> Login</Link>
