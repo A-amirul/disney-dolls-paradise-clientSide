@@ -20,7 +20,7 @@ const Footer = () => {
 				<div>
 					<img style={{ width: "150px", height: "100px" }} className="text-center mx-auto rounded-full" src="https://i.ibb.co/TPJnMxN/logo.png" alt="" />
 					<p className="font-bold">
-						Disney dolls Industries Ltd. <br />Providing reliable tech since 1992
+						Disney dolls Paradise Industries Ltd. <br />Providing reliable tech since 1992
 					</p>
 				</div>
 				<div>
