@@ -38,8 +38,8 @@ const Header = () => {
 						{NavItems}
 					</ul>
 				</div>
-				<Link to="/" className="font-extrabold">
-					<img className="mx-auto" style={{ width: "60px", height: "40px" }} src={logo} alt="" />DisneyDolls
+				<Link to="/" className="font-bold text-xl">
+					<img className="mx-auto rounded-full" style={{ width: "80px", height: "70px" }} src={logo} alt="" />Disney<span className="text-amber-600">Dolls</span>
 				</Link>
 			</div>
 			<div className="navbar-center hidden lg:flex">

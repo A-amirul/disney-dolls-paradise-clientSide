@@ -3,16 +3,13 @@ import useTitle from "../../../useTitle";
 const Blog = () => {
 	useTitle('Blog');
 	return (
-		<div className="md:w-3/4 mx-auto">
-			<div className="m-8 pt-8">
+		<div className="md:px-56 mx-auto bg-base-200">
+			<div className="p-8 pt-10">
 				<h2 className="text-3xl font-bold">1. What is an access token and refresh token? How do they work and where should we store them on the client-side?</h2>
-				<div className="text-xl my-4">
+				<div className="text-xl pt-4">
 
 					<strong className="text-2xl">Access Token</strong>
-					<p>An access token is a credential that is obtained after a user successfully authenticates with a server or identity provider.
-						It is a short-lived token with an expiration time, typically ranging from a few minutes to a few hours.
-						The access token is used to authorize and authenticate the users requests to access protected resources (e.g., APIs, services).
-						When a user makes a request to a protected resource, they include the access token in the request header or as a query parameter.</p>
+					<p>An access token is a credential that is obtained after a user successfully authenticates with a server or identity provider.It is a short-lived token with an expiration time, typically ranging from a few minutes to a few hours.The access token is used to authorize and authenticate the users requests to access protected resources (e.g., APIs, services).When a user makes a request to a protected resource, they include the access token in the request header or as a query parameter.</p>
 				</div>
 				<div className="text-xl">
 					<strong className="text-2xl">Refresh Token</strong>
@@ -22,7 +19,7 @@ const Blog = () => {
 						When the access token expires, the client can make a request to the server with the refresh token to obtain a new access token without requiring the user to provide their credentials again.</p>
 				</div>
 
-				<div className="text-xl my-4">
+				<div className="text-xl py-4">
 					<strong className="text-2xl ">How do they work and where should we store them on the client-side?</strong>
 					<p>Access tokens and refresh tokens should be stored securely to prevent unauthorized access.
 						Access tokens are typically stored in memory or in a client-side storage mechanism like browser cookies or local storage.
@@ -33,7 +30,7 @@ const Blog = () => {
 				</div>
 			</div>
 
-			<div className="m-8">
+			<div className="p-8">
 				<h2 className="text-3xl font-bold my-8">2. Compare SQL and NoSQL databases? </h2>
 				<div className="text-xl">
 					<strong className="text-2xl">SQL database</strong>
@@ -58,7 +55,7 @@ const Blog = () => {
 				</div>
 			</div>
 
-			<div className="m-8">
+			<div className="p-8">
 				<h2 className="text-3xl font-bold" >3. What is express js? What is Nest JS?</h2>
 				<div className="text-xl my-6">
 					<strong className="text-2xl my-4">What is express js?</strong>
@@ -70,7 +67,7 @@ const Blog = () => {
 					</p>
 				</div>
 			</div>
-			<div className="m-8">
+			<div className="p-8">
 				<h2 className="text-3xl font-bold" >4. What is MongoDB aggregate and how does it work?</h2>
 				<div className="text-xl my-4">
 					<strong className="text-2xl">What is MongoDB aggregate?</strong>
