@@ -6,10 +6,7 @@ import userImg from "/user.png"
 
 const Header = () => {
 	const { user, logOut } = useContext(AuthContext);
-	console.log(user?.photoURL);
-	if (user?.photoURL === null) {
-		console.log('photo null dice')
-	}
+
 	const handleLogOut = () => {
 		logOut()
 			.then(() => { })
@@ -27,7 +24,7 @@ const Header = () => {
 				:''
 
 		}
-		<li><Link to="/blog">Blogs</Link></li>
+		<li><Link to="/blog">Blog</Link></li>
 
 	</>
 	return (
@@ -57,7 +54,7 @@ const Header = () => {
 						user ?
 							<img onClick={handleLogOut}
 								className='w-10 h-10 rounded-full border bottom-2 border-black'
-								title={user?.reloadUserInfo?.displayName}
+								title={user?.reloadUserInfo?.displayName ? user?.reloadUserInfo?.displayName :'user name not available'}
 								src={user?.photoURL === null || '' ? userImg : user?.reloadUserInfo?.photoUrl} alt="" />
 							:
 							<Link to='/login'

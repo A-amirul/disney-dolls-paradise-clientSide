@@ -3,6 +3,7 @@ import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import useTitle from "../../../useTitle";
 const provider = new GoogleAuthProvider();
 const auth = getAuth();
 
@@ -12,7 +13,7 @@ const Login = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location?.state?.from?.pathname || '/'
-
+	useTitle('Login');
 
 	const handleLogin = event => {
 		event.preventDefault();

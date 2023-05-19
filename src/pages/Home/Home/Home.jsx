@@ -1,5 +1,7 @@
+import useTitle from "../../../useTitle";
 
 const Home = () => {
+	useTitle('Home');
 	return (
 		<div>
 			<h2>this is home page</h2>
