@@ -12,7 +12,7 @@ const MyToy = () => {
 	
 	return (
 		<div className="md:px-64 px-4 py-8 md:py-16 bg-base-200">
-			<h2 className="text-center font-medium md:text-4xl text-xl">All Toys: {userToys.length}</h2>
+			<h2 className="text-center font-medium md:text-4xl text-xl">My Toys: {userToys.length}</h2>
 
 			<div className="overflow-x-auto w-full">
 				<table className="table w-full">
@@ -24,14 +24,14 @@ const MyToy = () => {
 							<th>Sub-Category</th>
 							<th>Price</th>
 							<th>Quantity</th>
-							<th>Action</th>
+							<th className="mx-8">Action ( Delete or Update ) </th>
 						</tr>
 					</thead>
-					<tbody className="space-y-4">
+					<tbody>
 						{
 							userToys?.map(myToy => <MyToyCard
 								key={myToy._id}
-								MyToy={myToy}
+								myToy={myToy}
 							></MyToyCard>)
 						}
 					</tbody>

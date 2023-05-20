@@ -18,12 +18,12 @@ const AllToys = () => {
 							<th>Sub-Category</th>
 							<th>Price</th>
 							<th>Quantity</th>
-							<th>Action</th>
+							<th>Action (View Details)</th>
 						</tr>
 					</thead>
-					<tbody className="space-y-4">
+					<tbody>
 						{
-							allToys.map(toy => <ToyCard
+							allToys?.map(toy => <ToyCard
 								key={toy._id}
 								toy={toy}
 							></ToyCard>)

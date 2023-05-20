@@ -10,7 +10,7 @@ const ToyCard = ({ toy }) => {
 			<td>{price}</td>
 			<td>{quantity}</td>
 			<th>
-				<button className=" bg-blue-600 text-white hover:bg-blue-800 px-4 py-2 rounded-md">Details</button>
+				<button className=" bg-blue-600 text-white hover:bg-blue-800 px-4 py-2 rounded-md transition">View Details</button>
 			</th>
 		</tr>
 	);
