@@ -43,9 +43,9 @@ const AddAToy = () => {
 						</div>
 
 						<div>
-							<label className="font-medium" htmlFor="category">Select a Category</label> <br />
-							<select className="w-3/4 py-2 rounded-lg px-4" placeholder="Select a category" {...register("category")}>
-								<option value="princes">Disney princes</option>
+							<label className="font-medium" htmlFor="category">Select a Sub-Category</label> <br />
+							<select className="w-3/4 py-2 rounded-lg px-4" {...register("sub_category")}>
+								<option value="princess">Disney princes</option>
 								<option value="frozen">frozen dolls</option>
 								<option value="animation">animation characters</option>
 							</select>
