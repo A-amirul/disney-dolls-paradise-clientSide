@@ -29,7 +29,7 @@ const ViewDetails = () => {
 
 			<div className="card lg:card-side bg-base-100 shadow-xl">
 				<figure><img src={toys?.photo} alt="Album" /></figure>
-				<div className="card-body">
+				<div className="card-body px-4">
 					<h2 className="card-title pt-4">{toys?.toyName}</h2>
 								<p><strong>Seller Name:</strong> {toys?.seller}</p>
 								<p><strong>Seller Email:</strong> {toys?.email}</p>
