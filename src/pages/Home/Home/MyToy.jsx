@@ -7,9 +7,7 @@ import MyToyCard from "./MyToyCard";
 const MyToy = () => {
 	const { user } = useContext(AuthContext);
 	const toys = useLoaderData();
-	const userToys = toys?.filter(toy => user?.email === toy?.email);
-	console.log(userToys);
-	
+	const userToys = toys?.filter(toy => user?.email === toy?.email);	
 	return (
 		<div className="md:px-64 px-4 py-8 md:py-16 bg-base-200">
 			<h2 className="text-center font-medium md:text-4xl text-xl">My Toys: {userToys.length}</h2>
