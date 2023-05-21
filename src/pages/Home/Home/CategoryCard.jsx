@@ -1,5 +1,6 @@
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
+import { Link } from "react-router-dom";
 
 const CategoryCard = ({ item }) => {
 
@@ -19,10 +20,7 @@ const CategoryCard = ({ item }) => {
 					></Rating>
 					<p className='ms-2 font-bold'> {item?.rating}</p>
 				</div>
-				<div className="md:pb-8">
-					<p><strong>Details</strong></p>
-					<p>{item?.description}</p>
-				</div>
+				<Link to={`/allToys/${item?._id}`}><button className=" bg-blue-600 text-white hover:bg-blue-800 px-4 py-2 rounded-md transition">View Details</button></Link>
 
 			</div>
 		</div>

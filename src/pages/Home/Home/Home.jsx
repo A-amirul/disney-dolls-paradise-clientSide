@@ -10,7 +10,6 @@ const Home = () => {
 	const [selectedValue, setSelectedValue] = useState('all');
 	const toys = useLoaderData();
 	const filteredData = selectedValue === 'all' ? toys : toys?.filter((item) => item?.sub_category === selectedValue);
-	console.log(toys);
 
 	const handleTabChange = (value) => {
 		setSelectedValue(value);
@@ -57,8 +56,6 @@ const Home = () => {
 			</div>
 
 			{/* Category Tab */}
-
-    
 			<div className="md:px-64 py-8">
 				<h1 className="text-4xl font-medium py-4 text-center">See the Category</h1>
 
