@@ -16,10 +16,15 @@ const AddAToy = () => {
 			.then(res => res.json())
 			.then(result => {
 				console.log(result);
+				if(result.insertedId) {
+					alert('Successfully added an item');
+
+				}
 
 			})
 
 	}
+
 
 	useTitle('AddAToy');
 
@@ -84,6 +89,7 @@ const AddAToy = () => {
 					<div className="w-1/3 mx-auto">
 						<input className=" w-full py-4 rounded-lg px-4 bg-blue-400 hover:bg-blue-700 text-white font-semibold text-xl my-6" type="submit" />
 					</div>
+
 				</form>
 			</div>
 		</div>

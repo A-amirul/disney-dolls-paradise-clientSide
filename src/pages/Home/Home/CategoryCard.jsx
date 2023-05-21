@@ -6,15 +6,12 @@ import 'aos/dist/aos.css';
 import { useEffect } from "react";
 
 const CategoryCard = ({ item }) => {
-
 	useEffect(() => {
 		AOS.init();
 	}, []);
 
 	return (
-		<div className=" bg-base-100 px-4 " data-aos-anchor-placement="top-center" data-aos="fade-left"
-			data-aos-easing="ease-out-cubic"
-			data-aos-duration="2000" >
+		<div className=" bg-base-100 px-4 " data-aos-anchor-placement="top-center" data-aos="fade-up" data-aos-duration="1000" >
 			<figure><img src={item?.photo} alt="Album" /></figure>
 			<div className="card-body px-4">
 				<h2 className="card-title pt-4">{item?.toyName}</h2>

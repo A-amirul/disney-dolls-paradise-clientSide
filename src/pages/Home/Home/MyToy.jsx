@@ -6,36 +6,33 @@ import useTitle from "../../../useTitle";
 
 
 const MyToy = () => {
+	const [sortOrder, setSortOrder] = useState('ascending');
 	const [myToys, setMyToys] = useState();
 	const { user } = useContext(AuthContext);
-	const [ascending, setAscending] = useState(true);
 
 	const toys = useLoaderData();
+	console.log(toys)
 
 	const userToys = toys?.filter(toy => user?.email === toy?.email);
 	useEffect(() => {
 		setMyToys(userToys)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
-	
-
-	const handleSort = async () => {
-		try {
-			const sortOrder = ascending ? 1 : -1;
-			const response = await fetch(`https://disney-dolls-paradise-server-side.vercel.app/allToys?sortOrder=${sortOrder}`);
-			const data = await response.json();
-			myToys(data);
-			setAscending(!ascending);
-			console.log(data);
-
-		} catch (error) {
-			console.error('Error sorting data:', error);
-		}
-	};
-
 
 	useTitle('MyToy');
+	const handleAscendingSort = () => {
+		const sortedToys = [...userToys].sort((a, b) => a?.price.localeCompare(b?.price));
+		console.log(sortedToys)
+		setMyToys(sortedToys);
+		setSortOrder('ascending');
+	};
 
+	const handleDescendingSort = () => {
+		const sortedToys = [...userToys].sort((a, b) => b?.price.localeCompare(a?.price));
+		console.log(sortedToys)
+		setMyToys(sortedToys);
+		setSortOrder('descending');
+	};
 
 	const handleDelete = id => {
 
@@ -59,23 +56,18 @@ const MyToy = () => {
 	return (
 
 		<div>
+
+
 			<div className="md:px-64 px-4 py-8 md:py-16 bg-base-200">
-				<h2 className="text-center font-medium md:text-4xl text-xl py-8">My Toys: {myToys?.length}</h2>
 
 
-				<div className="text-center">
-					<button onClick={handleSort}>
-						Sort {ascending ? 'Ascending' : 'Descending'}
+				<h2 className="text-center font-medium md:text-4xl text-xl">My Toys: {myToys?.length}</h2>
+				
+				<div className="text-end md:pe-44 pe-4 py-6">
+					<button className="bg-green-700 text-base-300 px-3 py-2 rounded-md" onClick={sortOrder === 'ascending' ? handleDescendingSort : handleAscendingSort}>
+						{sortOrder === 'ascending' ? 'Click to Descending' : 'Click to Ascending'}
 					</button>
-					{/* <ul>
-						{sortedData.map((item) => (
-							<li key={item._id}>{item.price}</li>
-						))}
-					</ul> */}
 				</div>
-
-
-
 				<div className="overflow-x-auto w-full">
 					<table className="table w-full">
 						{/* head */}
@@ -91,7 +83,7 @@ const MyToy = () => {
 						</thead>
 						<tbody>
 							{
-								userToys?.map(myToy => <MyToyCard
+								myToys?.map(myToy => <MyToyCard
 									key={myToy._id}
 									myToy={myToy}
 									handleDelete={handleDelete}
