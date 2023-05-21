@@ -100,14 +100,72 @@ const Home = () => {
 			<div className="md:px-72 py-8">
 				<div className="card lg:card-side" data-aos-anchor-placement="top-center" data-aos="fade-up" data-aos-duration="1000">
 					<div className="card-body">
-						<h2 className="card-title text-2xl md:text-6xl">Best doll finder Website</h2>
+						<h2 className="card-title text-sky-800 text-2xl md:text-6xl">Best dolls finder  Website <br /> Disney Dolls Paradise </h2>
 						<p className="md:w-3/4 py-3 md:text-xl">Do you want a reborn or a Disney doll? Which size? Any special hair color? Here is available Disney Princess, Frozen Dolls and animation character dolls. Find the doll you are looking for with the exclusive Dolls And Dolls Advanced Search Engine.</p>
 							<button className="btn btn-outline w-1/2 md:w-1/4">Shop Now</button>
 					</div>
 					<figure className="md:w-1/2" ><img src={img} /></figure>
-
 				</div>
 			</div>
+
+			{/* Extra section-2 */}
+			<section className=" py-8 bg-base-300" data-aos-anchor-placement="top-center" data-aos="fade-up" data-aos-duration="1000">
+				<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+					<div className="text-center">
+						<h2 className="text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+							Contact Us
+						</h2>
+						<p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+							We would love to hear from you. Send us a message and we will get back to you as soon as possible.
+						</p>
+					</div>
+					<div className="mt-12">
+						<form>
+							<div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+								<div>
+									<label htmlFor="name" className="block text-sm font-medium text-gray-700">
+										Name
+									</label>
+									<div className="mt-1">
+										<input
+											type="text"
+											id="name"
+											className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+										/>
+									</div>
+								</div>
+								<div>
+									<label htmlFor="email" className="block text-sm font-medium text-gray-700">
+										Email
+									</label>
+									<div className="mt-1">
+										<input
+											type="email"
+											id="email"
+											className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+										/>
+									</div>
+								</div>
+								<div className="sm:col-span-2">
+									<label htmlFor="message" className="block text-sm font-medium text-gray-700">
+										Message
+									</label>
+									<div className="mt-1">
+										<textarea
+											id="message"
+											rows="4"
+											className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+										></textarea>
+									</div>
+								</div>
+								<div className="sm:col-span-2 text-center">
+									<button className="btn bg-blue-500  md:w-3/4">Submit</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</section>
 
 
 		</div >
