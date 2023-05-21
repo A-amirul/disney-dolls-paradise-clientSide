@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
+import useTitle from "../../../useTitle";
 
 const UpdateToy = () => {
 
@@ -7,7 +8,7 @@ const UpdateToy = () => {
 	const { _id } = useParams();
 
 	const handleUpdate = data => {
-		fetch(`http://localhost:4000/updateToy/${_id}`, {
+		fetch(`https://disney-dolls-paradise-server-side.vercel.app/updateToy/${_id}`, {
 			method: "PUT",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(data)
@@ -17,6 +18,8 @@ const UpdateToy = () => {
 				console.log(result);
 			})
 	}
+
+	useTitle('Update Toy');
 
 	return (
 		<div className="md:px-96 px-4 mx-auto bg-base-200 md:py-36">

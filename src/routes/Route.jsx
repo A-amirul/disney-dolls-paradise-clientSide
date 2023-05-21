@@ -10,18 +10,19 @@ import MyToy from "../pages/Home/Home/MyToy";
 import AllToys from "../pages/Home/Home/AllToys";
 import PrivateRoute from "./PrivateRoute";
 import ViewDetails from "../pages/Home/Home/ViewDetails";
-import UpdateJob from "../pages/Home/Home/UpdateToy";
+import UpdateToy from "../pages/Home/Home/UpdateToy";
 
 
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <Main></Main>,
-		errorElement:<ErrorPage></ErrorPage>,
+		errorElement: <ErrorPage></ErrorPage>,
 		children: [
 			{
 				path: "/",
-				element:<Home></Home>
+				element: <Home></Home>,
+				loader: () => fetch("https://disney-dolls-paradise-server-side.vercel.app/alltoys")
 			},
 			{
 				path: "/login",
@@ -33,30 +34,30 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/blog",
-				element:<Blog></Blog>
+				element: <Blog></Blog>
 			},
 			{
 				path: "/allToys",
 				element: <AllToys></AllToys>,
-				loader: () => fetch("http://localhost:4000/alltoys")
+				loader: () => fetch("https://disney-dolls-paradise-server-side.vercel.app/alltoys")
 			},
 			{
 				path: "/allToys/:_id",
 				element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-				
+
 			},
 			{
 				path: "/addToy",
-				element:<AddAToy></AddAToy>
+				element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>,
 			},
 			{
 				path: "/myToy",
 				element: <PrivateRoute><MyToy></MyToy></PrivateRoute>,
-				loader: () => fetch("http://localhost:4000/alltoys")
+				loader: () => fetch("https://disney-dolls-paradise-server-side.vercel.app/alltoys")
 			},
 			{
 				path: "/updateToy/:_id",
-				element:<UpdateJob></UpdateJob>
+				element: <UpdateToy></UpdateToy>,
 			}
 		]
 	},

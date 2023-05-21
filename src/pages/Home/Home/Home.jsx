@@ -1,14 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import useTitle from "../../../useTitle";
 import banner from "/banner.gif"
+import { Tab, Tabs} from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import { useState } from "react";
+import CategoryCard from "./CategoryCard";
 
 const Home = () => {
+	const [selectedValue, setSelectedValue] = useState('all');
+	const toys = useLoaderData();
+	const filteredData = selectedValue === 'all' ? toys : toys?.filter((item) => item?.sub_category === selectedValue);
+	console.log(toys);
+
+	const handleTabChange = (value) => {
+		setSelectedValue(value);
+	};
+
+	const filteredItems = selectedValue === 'all' ? toys : toys.filter(item => item.sub_category === selectedValue);
+
 	useTitle('Home');
+	console.log(filteredData)
+
 	return (
 		<div className=" bg-base-200">
 			{/* banner */}
 			<div className="bg-cover  bg-no-repeat md:py-72 py-6 bg-[#2D4764]" style={{
-				backgroundImage: `url(${banner})` 
+				backgroundImage: `url(${banner})`
 			}}>
 				<div>
 					<h1 className="md:text-5xl text-md text-white font-medium mb-4 capitalize md:px-64 px-4">Super <span className="text-amber-500">Collection</span> For <br /> Disney <span className="text-amber-500">Dolls </span>Paradise</h1>
@@ -22,7 +39,7 @@ const Home = () => {
 			{/* Gallery Section */}
 			<div className="md:px-64 px-4 pb-8">
 				<h1 className="text-center text-4xl font-semibold py-8  md:mt-8 text-black" >Dolls Gallery</h1>
-				<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 shadow ">
+				<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
 					<img src="https://i.ibb.co/2tF5JD9/img4.jpg" alt="" />
 					<img src="https://i.ibb.co/MhKT75x/img5.jpg" alt="" />
 					<img src="https://i.ibb.co/xmdY1n7/img1.jpg" alt="" />
@@ -33,16 +50,47 @@ const Home = () => {
 					<img src="https://i.ibb.co/TTVkkD0/img3.webp" alt="" />
 					<img src="https://i.ibb.co/wgsWtDz/img1.webp" alt="" />
 					<img src="https://i.ibb.co/hf0Jr3H/img2.webp" alt="" />
+					<img src="https://i.ibb.co/ZTM3KjJ/img2.jpg" alt="" />
+					<img src="https://i.ibb.co/wgsWtDz/img1.webp" alt="" />
 				</div>
 
 			</div>
 
 			{/* Category Tab */}
-			
-			
+
+    
+			<div className="md:px-64 py-8">
+				<h1 className="text-4xl font-medium py-4 text-center">See the Category</h1>
+
+				<Tabs className="text-center font-bold text-xl py-3">
+					<Tab  className={`tab ${selectedValue === 'all' ? 'active' : ''}`} onClick={() => handleTabChange('all')}>
+						All
+					</Tab>
+					<Tab  className={`tab ${selectedValue === 'princess' ? 'active' : ''}`} onClick={() => handleTabChange('princess')}>
+						Disney Princess
+					</Tab>
+					<Tab className={`tab ${selectedValue === 'frozen' ? 'active' : ''}`} onClick={() => handleTabChange('frozen')}>
+						Frozen Dolls
+					</Tab>
+					<Tab className={`tab ${selectedValue === 'animation' ? 'active' : ''}`} onClick={() => handleTabChange('animation')}>
+						Animation Characters
+					</Tab>
+				</Tabs>
+
+				<hr />
+
+				<div className="grid md:grid-cols-3 gap-4 py-8">
+					{filteredItems?.map(item => <CategoryCard
+						key={item._id}
+						item={item}
+					></CategoryCard>)}
+				</div>
 
 
-		</div>
+			</div>
+
+
+		</div >
 	);
 };
 

@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../providers/AuthProvider";
+import useTitle from "../../../useTitle";
 
 const AddAToy = () => {
 	const { user } = useContext(AuthContext);
 	const { register, handleSubmit } = useForm();
 
 	const onSubmit = data => {
-		fetch("http://localhost:4000/addAToy", {
+		fetch("https://disney-dolls-paradise-server-side.vercel.app/addAToy", {
 			method: "POST",
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data)
@@ -16,9 +17,11 @@ const AddAToy = () => {
 			.then(result => {
 				console.log(result);
 
-		})
+			})
 
 	}
+
+	useTitle('AddAToy');
 
 
 	return (
@@ -74,10 +77,10 @@ const AddAToy = () => {
 					</div>
 					<div className="pt-8">
 						<label className="font-medium" htmlFor="description">Description</label> <br />
-						
+
 						<textarea className="w-full rounded-lg p-4" name="description" cols="30" rows="5" placeholder="Write here about the Toy" required {...register("description")} />
 					</div>
-					
+
 					<div className="w-1/3 mx-auto">
 						<input className=" w-full py-4 rounded-lg px-4 bg-blue-400 hover:bg-blue-700 text-white font-semibold text-xl my-6" type="submit" />
 					</div>

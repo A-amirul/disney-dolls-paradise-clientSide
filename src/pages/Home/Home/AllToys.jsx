@@ -1,8 +1,13 @@
 import { useLoaderData } from "react-router-dom";
 import ToyCard from "./ToyCard";
+import useTitle from "../../../useTitle";
+
 
 const AllToys = () => {
+	
 	const allToys = useLoaderData();
+	useTitle('AllToys');
+	
 	console.log(allToys);
 	return (
 		<div className="md:px-64 px-4 py-8 md:py-16 bg-base-200">
