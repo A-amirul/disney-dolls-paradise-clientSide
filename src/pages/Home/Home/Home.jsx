@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import CategoryCard from "./CategoryCard";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import img from "/extra.gif";
 
 
 
@@ -92,6 +93,20 @@ const Home = () => {
 				</div>
 
 
+			</div>
+
+			{/* Extra Section-1 */}
+
+			<div className="md:px-72 py-8">
+				<div className="card lg:card-side" data-aos-anchor-placement="top-center" data-aos="fade-up" data-aos-duration="1000">
+					<div className="card-body">
+						<h2 className="card-title text-2xl md:text-6xl">Best doll finder Website</h2>
+						<p className="md:w-3/4 py-3 md:text-xl">Do you want a reborn or a Disney doll? Which size? Any special hair color? Here is available Disney Princess, Frozen Dolls and animation character dolls. Find the doll you are looking for with the exclusive Dolls And Dolls Advanced Search Engine.</p>
+							<button className="btn btn-outline w-1/2 md:w-1/4">Shop Now</button>
+					</div>
+					<figure className="md:w-1/2" ><img src={img} /></figure>
+
+				</div>
 			</div>
 
 
