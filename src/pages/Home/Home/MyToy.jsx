@@ -8,6 +8,7 @@ import useTitle from "../../../useTitle";
 const MyToy = () => {
 	const [myToys, setMyToys] = useState();
 	const { user } = useContext(AuthContext);
+	const [ascending, setAscending] = useState(true);
 
 	const toys = useLoaderData();
 
@@ -16,6 +17,22 @@ const MyToy = () => {
 		setMyToys(userToys)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
+	
+
+	const handleSort = async () => {
+		try {
+			const sortOrder = ascending ? 1 : -1;
+			const response = await fetch(`https://disney-dolls-paradise-server-side.vercel.app/allToys?sortOrder=${sortOrder}`);
+			const data = await response.json();
+			myToys(data);
+			setAscending(!ascending);
+			console.log(data);
+
+		} catch (error) {
+			console.error('Error sorting data:', error);
+		}
+	};
+
 
 	useTitle('MyToy');
 
@@ -42,12 +59,22 @@ const MyToy = () => {
 	return (
 
 		<div>
-
-
 			<div className="md:px-64 px-4 py-8 md:py-16 bg-base-200">
+				<h2 className="text-center font-medium md:text-4xl text-xl py-8">My Toys: {myToys?.length}</h2>
 
 
-				<h2 className="text-center font-medium md:text-4xl text-xl">My Toys: {myToys?.length}</h2>
+				<div className="text-center">
+					<button onClick={handleSort}>
+						Sort {ascending ? 'Ascending' : 'Descending'}
+					</button>
+					{/* <ul>
+						{sortedData.map((item) => (
+							<li key={item._id}>{item.price}</li>
+						))}
+					</ul> */}
+				</div>
+
+
 
 				<div className="overflow-x-auto w-full">
 					<table className="table w-full">
@@ -64,7 +91,7 @@ const MyToy = () => {
 						</thead>
 						<tbody>
 							{
-								myToys?.map(myToy => <MyToyCard
+								userToys?.map(myToy => <MyToyCard
 									key={myToy._id}
 									myToy={myToy}
 									handleDelete={handleDelete}

@@ -13,7 +13,7 @@ const AllToys = () => {
 
 	const handleSearch = () => {
 		const results = allToys.filter((item) =>
-			item.sub_category.toLowerCase().includes(searchQuery.toLowerCase())
+			item.toyName.toLowerCase().includes(searchQuery.toLowerCase())
 		);
 		setSearchResults(results);
 	};
@@ -36,7 +36,7 @@ const AllToys = () => {
 					type="text"
 					value={searchQuery}
 					onChange={(e) => setSearchQuery(e.target.value)}
-					placeholder="Enter your search query"
+					placeholder="Enter your search here"
 					className="border border-gray-300 px-4 py-2 rounded-lg focus:outline-none focus:border-blue-500 w-1/3"
 				/>
 				<button

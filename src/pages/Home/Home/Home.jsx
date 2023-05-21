@@ -3,8 +3,12 @@ import useTitle from "../../../useTitle";
 import banner from "/banner.gif"
 import { Tab, Tabs} from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CategoryCard from "./CategoryCard";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
 
 const Home = () => {
 	const [selectedValue, setSelectedValue] = useState('all');
@@ -19,6 +23,10 @@ const Home = () => {
 
 	useTitle('Home');
 	console.log(filteredData)
+
+	useEffect(() => {
+		AOS.init();
+	}, []);
 
 	return (
 		<div className=" bg-base-200">
@@ -38,8 +46,8 @@ const Home = () => {
 			{/* Gallery Section */}
 			<div className="md:px-64 px-4 pb-8">
 				<h1 className="text-center text-4xl font-semibold py-8  md:mt-8 text-black" >Dolls Gallery</h1>
-				<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-					<img src="https://i.ibb.co/2tF5JD9/img4.jpg" alt="" />
+				<div className="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos-anchor-placement="top-center" data-aos="fade-up" data-aos-duration="1000" >
+					<img src="https://i.ibb.co/2tF5JD9/img4.jpg" alt=""/>
 					<img src="https://i.ibb.co/MhKT75x/img5.jpg" alt="" />
 					<img src="https://i.ibb.co/xmdY1n7/img1.jpg" alt="" />
 					<img src="https://i.ibb.co/Rykm2v5/img2.jpg" alt="" />
@@ -57,9 +65,9 @@ const Home = () => {
 
 			{/* Category Tab */}
 			<div className="md:px-64 py-8">
-				<h1 className="text-4xl font-medium py-4 text-center">See the Category</h1>
+				<h1 className="text-4xl font-medium py-4 text-center">Shop by Category</h1>
 
-				<Tabs className="text-center font-bold text-xl py-3">
+				<Tabs className="text-center font-bold text-xl py-3" >
 					<Tab  className={`tab ${selectedValue === 'all' ? 'active' : ''}`} onClick={() => handleTabChange('all')}>
 						All
 					</Tab>
