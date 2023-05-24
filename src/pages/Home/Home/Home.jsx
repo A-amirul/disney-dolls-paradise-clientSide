@@ -44,25 +44,7 @@ const Home = () => {
 				</div>
 			</div>
 
-			{/* Gallery Section */}
-			<div className="md:px-64 px-4 pb-8">
-				<h1 className="text-center text-4xl font-semibold py-8  md:mt-8 text-black" >Dolls Gallery</h1>
-				<div className="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos-anchor-placement="top-center" data-aos="fade-up" data-aos-duration="1000" >
-					<img src="https://i.ibb.co/2tF5JD9/img4.jpg" alt=""/>
-					<img src="https://i.ibb.co/MhKT75x/img5.jpg" alt="" />
-					<img src="https://i.ibb.co/xmdY1n7/img1.jpg" alt="" />
-					<img src="https://i.ibb.co/Rykm2v5/img2.jpg" alt="" />
-					<img src="https://i.ibb.co/D44MRSX/img3.jpg" alt="" />
-					<img src="https://i.ibb.co/ZTM3KjJ/img2.jpg" alt="" />
-					<img src="https://i.ibb.co/NF7jq9C/img3.jpg" alt="" />
-					<img src="https://i.ibb.co/TTVkkD0/img3.webp" alt="" />
-					<img src="https://i.ibb.co/wgsWtDz/img1.webp" alt="" />
-					<img src="https://i.ibb.co/hf0Jr3H/img2.webp" alt="" />
-					<img src="https://i.ibb.co/ZTM3KjJ/img2.jpg" alt="" />
-					<img src="https://i.ibb.co/wgsWtDz/img1.webp" alt="" />
-				</div>
-
-			</div>
+			
 
 			{/* Category Tab */}
 			<div className="md:px-64 py-8">
@@ -95,7 +77,24 @@ const Home = () => {
 
 			</div>
 
-			{/* Extra Section-1 */}
+			{/* Gallery Section */}
+			<div className="md:px-64 px-4 pb-8">
+				<h1 className="text-center text-4xl font-semibold py-8  md:mt-8 text-black" >Dolls Gallery</h1>
+				<div className="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos-anchor-placement="top-center" data-aos="fade-up" data-aos-duration="1000" >
+					<img src="https://i.ibb.co/2tF5JD9/img4.jpg" alt="" />
+					<img src="https://i.ibb.co/MhKT75x/img5.jpg" alt="" />
+					<img src="https://i.ibb.co/xmdY1n7/img1.jpg" alt="" />
+					<img src="https://i.ibb.co/Rykm2v5/img2.jpg" alt="" />
+					<img src="https://i.ibb.co/ZTM3KjJ/img2.jpg" alt="" />
+					<img src="https://i.ibb.co/NF7jq9C/img3.jpg" alt="" />
+					<img src="https://i.ibb.co/TTVkkD0/img3.webp" alt="" />
+					<img src="https://i.ibb.co/hf0Jr3H/img2.webp" alt="" />
+					
+				</div>
+
+			</div>
+
+			{/* Best Doll Finder */}
 
 			<div className="md:px-72 py-8">
 				<div className="card lg:card-side" data-aos-anchor-placement="top-center" data-aos="fade-up" data-aos-duration="1000">
@@ -108,7 +107,7 @@ const Home = () => {
 				</div>
 			</div>
 
-			{/* Extra section-2 */}
+			{/* Contact section */}
 			<section className=" py-8 bg-base-300" data-aos-anchor-placement="top-center" data-aos="fade-up" data-aos-duration="1000">
 				<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="text-center">
